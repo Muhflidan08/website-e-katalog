@@ -1,0 +1,253 @@
+/* ==========================================================
+   STYLE DASHBOARD ADMIN
+   Tema: Biru muda (soft blue) - senada dengan edit.php & tambah.php
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER BANNER ===== */
+.admin-header {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.admin-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.admin-header p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 4px;
+}
+
+/* ===== TOP BAR (tombol aksi atas) ===== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== TOMBOL ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-add {
+    background: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.btn-logout {
+    background: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fecdd3;
+}
+
+.btn-logout:hover {
+    background: #ffe4e6;
+}
+
+.btn-action {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.btn-action.edit {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.btn-action.edit:hover {
+    background: #bae6fd;
+}
+
+.btn-action.hapus {
+    background: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fecdd3;
+}
+
+.btn-action.hapus:hover {
+    background: #ffe4e6;
+}
+
+/* ===== TABLE WRAPPER (card) ===== */
+.table-wrapper {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    padding: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+thead th {
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+    padding: 14px 16px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ===== ELEMEN ISI TABEL ===== */
+td img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: block;
+}
+
+.badge-kategori {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.price-text {
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+}
+
+.aksi {
+    display: flex;
+    gap: 8px;
+}
+
+/* ===== STATE KOSONG ===== */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #64748b;
+}
+
+.empty-state p {
+    margin-top: 6px;
+    font-size: 0.9rem;
+}
+
+/* ===== NOTIFIKASI STATUS ===== */
+.alert-success {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin: 16px 0 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .admin-header {
+        padding: 20px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .top-bar-left,
+    .top-bar-right {
+        display: flex;
+        gap: 10px;
+    }
+}

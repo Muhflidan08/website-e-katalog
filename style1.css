@@ -1,0 +1,1347 @@
+/* =========================================================
+   STYLE1.CSS — E-Commerce Affiliate (Tema Soft Blue)
+   Dibuat responsive: produk otomatis mengecil & menyesuaikan
+   di perangkat handphone / tablet.
+   ========================================================= */
+
+/* ---------- 1. RESET & BASE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --biru-utama: #0ea5e9;
+    --biru-gelap: #0284c7;
+    --biru-tua: #0369a1;
+    --biru-soft: #e0f2fe;
+    --biru-soft2: #f0f9ff;
+    --bg-page: #eef5fb;
+    --putih: #ffffff;
+    --teks-gelap: #0f172a;
+    --teks-abu: #64748b;
+    --border-soft: #dbeafe;
+    --merah: #ef4444;
+    --radius: 14px;
+    --shadow: 0 4px 14px rgba(14, 165, 233, 0.10);
+    --shadow-hover: 0 8px 22px rgba(14, 165, 233, 0.18);
+
+    /* Navbar & Footer — versi netral/putih ala e-commerce */
+    --navbar-bg: #ffffff;
+    --navbar-border: #e5e9f0;
+    --navbar-shadow: 0 1px 8px rgba(15, 23, 42, 0.06);
+    --footer-bg: #f8fafc;
+    --footer-border: #e2e8f0;
+    --footer-teks: #475569;
+    --footer-judul: #0f172a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-page);
+    color: var(--teks-gelap);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+input, textarea {
+    font-family: inherit;
+}
+
+/* ---------- 2. NAVBAR ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--navbar-border);
+    padding: 14px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--navbar-shadow);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-center form {
+    display: flex;
+    width: 100%;
+    max-width: 420px;
+}
+
+.nav-center input[type="text"] {
+    flex: 1;
+    padding: 9px 14px;
+    border: 1px solid var(--border-soft);
+    border-right: none;
+    border-radius: 999px 0 0 999px;
+    outline: none;
+    font-size: 0.9rem;
+    background: var(--biru-soft2);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.nav-center input[type="text"]:focus {
+    border-color: var(--biru-utama);
+    background: var(--putih);
+}
+
+.nav-center button {
+    padding: 9px 18px;
+    background: var(--biru-utama);
+    color: var(--putih);
+    border-radius: 0 999px 999px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.nav-center button:hover {
+    background: var(--biru-gelap);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+}
+
+.nav-right a {
+    color: var(--teks-gelap);
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-right a:hover {
+    opacity: 1;
+    color: var(--biru-utama);
+    text-decoration: none;
+}
+
+/* ---------- 3. JUDUL SAMBUTAN ---------- */
+.welcome-title {
+    font-weight: 700;
+}
+
+/* ---------- 4. MAIN LAYOUT (Sidebar + Produk) ---------- */
+.main-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    align-items: start;
+}
+
+/* ---------- 5. SIDEBAR ---------- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: sticky;
+    top: 90px;
+}
+
+.sidebar-box {
+    background: var(--putih);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.sidebar-box h3 {
+    font-size: 1rem;
+    color: var(--biru-tua);
+    margin-bottom: 12px;
+}
+
+.sidebar-box ul li {
+    margin-bottom: 6px;
+}
+
+.sidebar-box ul li a {
+    display: block;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--teks-gelap);
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-box ul li a:hover {
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+}
+
+.sidebar-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-box input[type="number"] {
+    padding: 9px 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.sidebar-box input[type="number"]:focus {
+    border-color: var(--biru-utama);
+}
+
+.sidebar-box button {
+    padding: 9px;
+    background: var(--biru-utama);
+    color: var(--putih);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.sidebar-box button:hover {
+    background: var(--biru-gelap);
+}
+
+/* ---------- 6. GRID PRODUK ---------- */
+.produk-area {
+    width: 100%;
+}
+
+.content-produk {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--putih);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--biru-soft2);
+}
+
+.card h3 {
+    font-size: 0.92rem;
+    color: var(--teks-gelap);
+    padding: 10px 12px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.5em;
+}
+
+.card p {
+    padding: 2px 12px;
+    font-size: 0.8rem;
+    color: var(--teks-abu);
+}
+
+.card p:last-child {
+    padding-bottom: 12px;
+    font-weight: 700;
+    color: var(--biru-tua);
+    font-size: 0.92rem;
+}
+
+/* ---------- 7. FOOTER ---------- */
+.footer {
+    background: var(--footer-bg);
+    border-top: 1px solid var(--footer-border);
+    color: var(--footer-teks);
+    margin-top: 40px;
+    padding: 40px 24px 0;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding-bottom: 28px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: var(--footer-judul);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.footer-center {
+    align-items: center;
+    text-align: center;
+}
+
+.footer-right {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-logo {
+    width: 130px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: var(--putih);
+    padding: 6px 10px;
+    border: 1px solid var(--footer-border);
+}
+
+.footer-logo.logo-school {
+    width: 170px;
+}
+
+.footer-desc {
+    font-size: 0.82rem;
+    color: var(--footer-teks);
+    margin-top: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.footer-links a {
+    font-size: 0.82rem;
+    color: var(--footer-teks);
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--biru-utama);
+    text-decoration: underline;
+}
+
+.brand-badge {
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.brand-tagline {
+    font-size: 0.82rem;
+    color: var(--footer-teks);
+    margin: 6px 0 2px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--footer-border);
+    text-align: center;
+    padding: 14px 0;
+    font-size: 0.78rem;
+    color: var(--footer-teks);
+}
+
+/* ---------- 8. AUTH (Login / Register) ---------- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    background: linear-gradient(135deg, var(--biru-soft2), var(--bg-page));
+}
+
+.auth-box {
+    background: var(--putih);
+    border-radius: 18px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--border-soft);
+    text-align: center;
+}
+
+.auth-box h1 {
+    color: var(--biru-tua);
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+}
+
+.auth-box .btn-back {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 0.82rem;
+    color: var(--biru-utama);
+    font-weight: 600;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-box input {
+    padding: 12px 14px;
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.auth-box input:focus {
+    border-color: var(--biru-utama);
+}
+
+.auth-box button[type="submit"] {
+    padding: 12px;
+    background: var(--biru-utama);
+    color: var(--putih);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-top: 6px;
+    transition: background 0.2s;
+}
+
+.auth-box button[type="submit"]:hover {
+    background: var(--biru-gelap);
+}
+
+.auth-box p {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--teks-abu);
+}
+
+.auth-box p a {
+    color: var(--biru-utama);
+    font-weight: 600;
+}
+
+/* ---------- 9. PROFILE ---------- */
+.profile-wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.profile-card-modern {
+    background: var(--putih);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+}
+
+.profile-cover {
+    height: 120px;
+    background: linear-gradient(135deg, var(--biru-utama), var(--biru-tua));
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px 28px;
+    margin-top: -55px;
+}
+
+.avatar-wrapper {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--putih);
+    box-shadow: var(--shadow);
+    background: var(--biru-soft2);
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-role-badge {
+    margin-top: 12px;
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+}
+
+.profile-body h2 {
+    margin-top: 10px;
+    color: var(--teks-gelap);
+}
+
+.user-bio {
+    color: var(--teks-abu);
+    font-size: 0.88rem;
+    margin-top: 2px;
+    max-width: 400px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--biru-utama);
+    color: var(--putih);
+}
+
+.btn-primary:hover {
+    background: var(--biru-gelap);
+}
+
+.btn-secondary {
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+}
+
+.btn-secondary:hover {
+    background: #cfeafe;
+}
+
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-icon {
+    font-size: 1.6rem;
+}
+
+.stat-info h3 {
+    font-size: 0.95rem;
+    color: var(--teks-gelap);
+}
+
+.stat-info p {
+    font-size: 0.8rem;
+    color: var(--teks-abu);
+}
+
+.stat-link {
+    margin-top: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--biru-utama);
+}
+
+.stat-subtext {
+    font-size: 0.78rem;
+    color: var(--teks-abu);
+}
+
+.badge-active {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+/* ---------- 10. ABOUT ---------- */
+.about-hero {
+    background: linear-gradient(135deg, var(--biru-utama), var(--biru-tua));
+    color: var(--putih);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.about-hero-content p {
+    font-size: 0.95rem;
+    color: #e0f2fe;
+}
+
+.about-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-card-modern {
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-soft);
+}
+
+.about-card-modern h2 {
+    color: var(--biru-tua);
+    margin-bottom: 12px;
+}
+
+.about-card-modern p {
+    color: var(--teks-abu);
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.about-grid-card {
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-soft);
+}
+
+.grid-icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.about-grid-card h3 {
+    color: var(--biru-tua);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.about-grid-card ul li {
+    font-size: 0.88rem;
+    color: var(--teks-abu);
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.collaboration-card {
+    text-align: center;
+}
+
+.collab-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.collab-item, .collab-item1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    max-width: 220px;
+}
+
+.collab-item img, .collab-item1 img {
+    height: 60px;
+    object-fit: contain;
+}
+
+.collab-item h4, .collab-item1 h4 {
+    color: var(--teks-gelap);
+    font-size: 0.92rem;
+}
+
+.collab-item p, .collab-item1 p {
+    font-size: 0.78rem;
+    color: var(--teks-abu);
+}
+
+.collab-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border-soft);
+}
+
+.about-action {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.btn-primary-about {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--biru-utama);
+    color: var(--putih);
+    border-radius: 999px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.btn-primary-about:hover {
+    background: var(--biru-gelap);
+}
+
+/* ---------- 11. DETAIL PRODUK ---------- */
+.detail-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px 40px;
+}
+
+.btn-kembali {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--biru-utama);
+}
+
+.detail-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.detail-image img {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--biru-soft2);
+}
+
+.detail-info h1 {
+    font-size: 1.4rem;
+    color: var(--teks-gelap);
+    margin-bottom: 6px;
+}
+
+.detail-info h3 {
+    font-weight: 500;
+    color: var(--teks-abu);
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+}
+
+.detail-info h2 {
+    color: var(--biru-tua);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.btn-beli {
+    display: inline-block;
+    background: var(--biru-utama);
+    color: var(--putih);
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+.btn-beli:hover {
+    background: var(--biru-gelap);
+}
+
+.btn-fav {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+}
+
+.btn-fav:hover {
+    background: #cfeafe;
+}
+
+.info-box {
+    background: var(--biru-soft2);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.info-box h3 {
+    color: var(--biru-tua);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.info-box p {
+    font-size: 0.85rem;
+    color: var(--teks-abu);
+    margin-bottom: 4px;
+}
+
+.detail-deskripsi {
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+}
+
+.detail-deskripsi h3 {
+    color: var(--biru-tua);
+    margin-bottom: 10px;
+}
+
+.detail-deskripsi p {
+    color: var(--teks-abu);
+    font-size: 0.9rem;
+}
+
+/* ---------- 12. FAVORIT ---------- */
+.page-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px 40px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: var(--biru-utama);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.page-title {
+    color: var(--teks-gelap);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.favorite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--putih);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-soft);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--biru-soft2);
+}
+
+.product-info {
+    padding: 12px 14px 16px;
+}
+
+.product-category {
+    font-size: 0.72rem;
+    color: var(--biru-utama);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product-name {
+    font-size: 0.92rem;
+    color: var(--teks-gelap);
+    margin: 4px 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-weight: 700;
+    color: var(--biru-tua);
+    margin-bottom: 12px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-detail, .btn-remove {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.btn-detail {
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+}
+
+.btn-detail:hover {
+    background: #cfeafe;
+}
+
+.btn-remove {
+    background: #fee2e2;
+    color: var(--merah);
+}
+
+.btn-remove:hover {
+    background: #fecaca;
+}
+
+.empty-state {
+    text-align: center;
+    background: var(--putih);
+    border: 1px dashed var(--border-soft);
+    border-radius: var(--radius);
+    padding: 50px 20px;
+}
+
+.empty-state p {
+    color: var(--teks-abu);
+    margin-bottom: 16px;
+}
+
+.btn-shop {
+    display: inline-block;
+    background: var(--biru-utama);
+    color: var(--putih);
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.btn-shop:hover {
+    background: var(--biru-gelap);
+}
+
+/* ---------- 13. EDIT PROFILE ---------- */
+.edit-profile-wrapper {
+    max-width: 640px;
+    margin: 30px auto;
+    padding: 0 20px 40px;
+}
+
+.edit-profile-card {
+    background: var(--putih);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.edit-header-banner {
+    background: linear-gradient(135deg, var(--biru-utama), var(--biru-tua));
+    padding: 22px 24px;
+    color: var(--putih);
+}
+
+.btn-back-link {
+    font-size: 0.8rem;
+    color: #e0f2fe;
+    font-weight: 600;
+}
+
+.edit-header-banner h2 {
+    margin-top: 8px;
+}
+
+.edit-form-body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.avatar-upload-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.avatar-preview {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--biru-soft);
+    flex-shrink: 0;
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-choose-file {
+    display: inline-block;
+    background: var(--biru-soft);
+    color: var(--biru-tua);
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: fit-content;
+    transition: background 0.2s;
+}
+
+.btn-choose-file:hover {
+    background: #cfeafe;
+}
+
+.avatar-input input[type="file"] {
+    display: none;
+}
+
+.file-info {
+    font-size: 0.75rem;
+    color: var(--teks-abu);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teks-gelap);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 11px 14px;
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--biru-utama);
+}
+
+.form-actions {
+    margin-top: 6px;
+}
+
+.btn-save {
+    width: 100%;
+    padding: 12px;
+    background: var(--biru-utama);
+    color: var(--putih);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.btn-save:hover {
+    background: var(--biru-gelap);
+}
+
+/* =========================================================
+   14. RESPONSIVE — TABLET (max-width: 1024px)
+   ========================================================= */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns: 220px 1fr;
+        gap: 18px;
+    }
+
+    .content-produk {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 16px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   15. RESPONSIVE — MOBILE (max-width: 768px)
+   Sidebar pindah ke atas, produk mengecil menyesuaikan layar
+   ========================================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 16px;
+    }
+
+    .nav-center {
+        order: 3;
+        width: 100%;
+    }
+
+    .nav-right {
+        gap: 12px;
+        font-size: 0.85rem;
+    }
+
+    .welcome-title {
+        font-size: 1.1rem !important;
+        padding: 18px 12px 12px !important;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+        padding: 0 14px 32px;
+        gap: 16px;
+    }
+
+    .sidebar {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .sidebar-box {
+        flex: 1 1 100%;
+        padding: 14px;
+    }
+
+    /* GRID PRODUK MENGECIL DI HP: 2 kolom otomatis */
+    .content-produk {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card h3 {
+        font-size: 0.8rem;
+        padding: 8px 8px 0;
+        min-height: 2.2em;
+    }
+
+    .card p {
+        font-size: 0.72rem;
+        padding: 2px 8px;
+    }
+
+    .card p:last-child {
+        padding-bottom: 8px;
+        font-size: 0.82rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .footer-col,
+    .footer-right,
+    .footer-left {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-logo,
+    .footer-logo.logo-school {
+        width: 150px;
+        height: 50px;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .profile-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-top {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-info {
+        padding: 10px 10px 12px;
+    }
+
+    .product-name {
+        font-size: 0.82rem;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .about-hero {
+        padding: 40px 16px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .collab-logos {
+        gap: 20px;
+    }
+
+    .collab-divider {
+        display: none;
+    }
+
+    .avatar-upload-group {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   16. RESPONSIVE — MOBILE KECIL (max-width: 420px)
+   Produk jadi 2 kolom rapat, elemen makin ringkas
+   ========================================================= */
+@media (max-width: 420px) {
+    .content-produk,
+    .favorite-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card img,
+    .product-img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .auth-box {
+        padding: 28px 20px;
+    }
+
+    .detail-info h1 {
+        font-size: 1.15rem;
+    }
+
+    .detail-info h2 {
+        font-size: 1.3rem;
+    }
+}
